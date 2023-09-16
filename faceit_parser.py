@@ -55,8 +55,8 @@ class FaceitProfile(pyfaceit.Pyfaceit):
 # print(profile_links)
 
 if __name__ == "__main__":
-    url = "https://www.faceit.com/en/csgo/room/1-0ec43dc8-be2f-4e97-9d1b-5e82d7db0f77"
-    team_number = 1
+    url = input("Enter url of faceit match")
+    team_number = int(input("Enter team number 1 or 2 "))
     nicknames = FaceitProfile.get_nicknames(url,team_number)
     for nick in nicknames:
         player = FaceitProfile(f"{nick}")
