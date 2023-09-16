@@ -58,12 +58,6 @@ if __name__ == "__main__":
     url = "https://www.faceit.com/en/csgo/room/1-0ec43dc8-be2f-4e97-9d1b-5e82d7db0f77"
     team_number = 1
     nicknames = FaceitProfile.get_nicknames(url,team_number)
-    # instance = FaceitProfile(f"{nicknames[0]}")
-    # instance1 = FaceitProfile(f"{nicknames[1]}")
-    # instance2 = FaceitProfile(f"{nicknames[2]}")
-    # instance3 = FaceitProfile(f"{nicknames[3]}")
-    # instance4 = FaceitProfile(f"{nicknames[4]}")
-    # data = instance.get_all_maps_data(
     for nick in nicknames:
         player = FaceitProfile(f"{nick}")
         player.show_map_data()
