@@ -43,14 +43,15 @@ class FaceitProfile(pyfaceit.Pyfaceit):
 # print(profile_links)
 
 if __name__ == "__main__":
-    # url = "https://www.faceit.com/en/csgo/room/1-0ec43dc8-be2f-4e97-9d1b-5e82d7db0f77"
-    # team_number = 1
-    # nicknames = FaceitProfile.get_nicknames(url,team_number)
-    instance = FaceitProfile("Plak1n")
+    url = "https://www.faceit.com/en/csgo/room/1-0ec43dc8-be2f-4e97-9d1b-5e82d7db0f77"
+    team_number = 1
+    nicknames = FaceitProfile.get_nicknames(url,team_number)
+    instance = FaceitProfile(f"{nicknames[0]}")
     data = instance.get_all_maps_data()
     table = PrettyTable()
     table.field_names = ["Map", "Matches", "Win Rate %", "Average K/D Ratio", "Average K/R Ratio","Average Headshots %"]
     for i in range(9):
+        table.add_row(['','','','',f"{nicknames[0]}",''])
         table.add_row([f"{data[i]['label']}",
                        f"{data[i]['stats']['Matches']}",
                        f"{data[i]['stats']['Win Rate %']}",
