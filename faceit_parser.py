@@ -21,12 +21,13 @@ class FaceitProfile(pyfaceit.Pyfaceit):
     
     def show_map_data(self):
         table = PrettyTable()
-        table.field_names = ["Map", "Matches", "Win Rate %", "Average K/D Ratio", "Average K/R Ratio","Average Headshots %"]
+        table.field_names = ["Map", "Matches", "Win Rate %", "Average Kills", "Average K/D Ratio", "Average K/R Ratio","Average Headshots %"]
         for i in range(len(self.map_data)):
             if self.map_data[i]['mode'] == "5v5":
                 table.add_row([f"{self.map_data[i]['label']}",
                         f"{self.map_data[i]['stats']['Matches']}",
                         f"{self.map_data[i]['stats']['Win Rate %']}",
+                        f"{self.map_data[i]['stats']['Average Kills']}",
                         f"{self.map_data[i]['stats']['Average K/D Ratio']}",
                         f"{self.map_data[i]['stats']['Average K/R Ratio']}",
                         f"{self.map_data[i]['stats']['Average Headshots %']}"])
@@ -55,8 +56,8 @@ class FaceitProfile(pyfaceit.Pyfaceit):
 # print(profile_links)
 
 if __name__ == "__main__":
-    url = input("Enter url of faceit match")
-    team_number = int(input("Enter team number 1 or 2 "))
+    url = input("Enter url of faceit match: ")
+    team_number = int(input("Enter team number 1 or 2(team on the left has number 1, on the right 2): "))
     nicknames = FaceitProfile.get_nicknames(url,team_number)
     for nick in nicknames:
         player = FaceitProfile(f"{nick}")
